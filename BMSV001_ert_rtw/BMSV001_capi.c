@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.6
+ * Model version                  : 1.7
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 16:46:09 2026
+ * C/C++ source code generated on : Sat Feb  7 20:56:00 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -41,23 +41,23 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   /* addrMapIndex, sysNum, blockPath,
    * signalName, portNumber, dataTypeIndex, dimIndex, fxpIndex, sTimeIndex
    */
-  { 0, 0, TARGET_STRING("BMSV001/BMS/CBM/Signal Conversion1"),
-    TARGET_STRING("ICM_PCVM0_Filt"), 0, 0, 0, 0, 0 },
+  { 0, 0, TARGET_STRING("BMSV001/BMS/CBM/Signal Conversion"),
+    TARGET_STRING("ICM_PCVM_Filtered"), 0, 0, 0, 0, 0 },
 
-  { 1, 0, TARGET_STRING("BMSV001/BMS/CBM/Signal Conversion2"),
-    TARGET_STRING("ICM_PCVM1_Filt"), 0, 0, 0, 0, 0 },
+  { 1, 0, TARGET_STRING("BMSV001/BMS/ICM/Discrete Filter"),
+    TARGET_STRING("ICM_PCVM_Filtered"), 0, 0, 0, 0, 0 },
 
-  { 2, 0, TARGET_STRING("BMSV001/BMS/ICM/Discrete Filter"),
-    TARGET_STRING("ICM_PCVM_Filtered"), 0, 0, 1, 0, 0 },
+  { 2, 0, TARGET_STRING("BMSV001/BMS/ICM/Discrete Filter1"),
+    TARGET_STRING("ICM_BVM_Filtered"), 0, 0, 1, 0, 0 },
 
-  { 3, 0, TARGET_STRING("BMSV001/BMS/ICM/Discrete Filter1"),
-    TARGET_STRING("ICM_BVM_Filtered"), 0, 0, 0, 0, 0 },
+  { 3, 0, TARGET_STRING("BMSV001/BMS/ICM/Discrete Filter2"),
+    TARGET_STRING("ICM_AVM_Filtered"), 0, 0, 1, 0, 0 },
 
-  { 4, 0, TARGET_STRING("BMSV001/BMS/ICM/Discrete Filter2"),
-    TARGET_STRING("ICM_AVM_Filtered"), 0, 0, 0, 0, 0 },
+  { 4, 0, TARGET_STRING("BMSV001/BMS/ICM/Discrete Filter3"),
+    TARGET_STRING("ICM_TEMPERATURE_Filtered"), 0, 0, 1, 0, 0 },
 
-  { 5, 0, TARGET_STRING("BMSV001/BMS/ICM/Discrete Filter3"),
-    TARGET_STRING("ICM_TEMPERATURE_Filtered"), 0, 0, 0, 0, 0 },
+  { 5, 0, TARGET_STRING("BMSV001/BMS/RXL/Data Type Conversion"),
+    TARGET_STRING("PCVM"), 0, 0, 0, 0, 1 },
 
   {
     0, 0, (NULL), (NULL), 0, 0, 0, 0, 0
@@ -79,6 +79,9 @@ static const rtwCAPI_Signals rtRootOutputs[] = {
   /* addrMapIndex, sysNum, blockPath,
    * signalName, portNumber, dataTypeIndex, dimIndex, fxpIndex, sTimeIndex
    */
+  { 6, 0, TARGET_STRING("BMSV001/BattFaultFlg"),
+    TARGET_STRING(""), 1, 1, 1, 0, 0 },
+
   {
     0, 0, (NULL), (NULL), 0, 0, 0, 0, 0
   }
@@ -88,12 +91,13 @@ static const rtwCAPI_Signals rtRootOutputs[] = {
 
 /* Declare Data Addresses statically */
 static void* rtDataAddrMap[] = {
-  &ICM_PCVM0_Filt,                     /* 0: Signal */
-  &ICM_PCVM1_Filt,                     /* 1: Signal */
-  &ICM_PCVM_Filtered[0],               /* 2: Signal */
-  &ICM_BVM_Filtered,                   /* 3: Signal */
-  &ICM_AVM_Filtered,                   /* 4: Signal */
-  &ICM_TEMPERATURE_Filtered,           /* 5: Signal */
+  &BMSV001_B.ICM_PCVM_Filtered_j[0],   /* 0: Signal */
+  &ICM_PCVM_Filtered[0],               /* 1: Signal */
+  &ICM_BVM_Filtered,                   /* 2: Signal */
+  &ICM_AVM_Filtered,                   /* 3: Signal */
+  &ICM_TEMPERATURE_Filtered,           /* 4: Signal */
+  (void *) &BMSV001_ConstB.PCVM[0],    /* 5: Signal */
+  &BMSV001_Y.BattFaultFlg,             /* 6: Root Output */
 };
 
 /* Declare Data Run-Time Dimension Buffer Addresses statically */
@@ -107,7 +111,9 @@ static int32_T* rtVarDimsAddrMap[] = {
 static TARGET_CONST rtwCAPI_DataTypeMap rtDataTypeMap[] = {
   /* cName, mwName, numElements, elemMapIndex, dataSize, slDataId, *
    * isComplex, isPointer, enumStorageType */
-  { "float", "real32_T", 0, 0, sizeof(real32_T), (uint8_T)SS_SINGLE, 0, 0, 0 }
+  { "float", "real32_T", 0, 0, sizeof(real32_T), (uint8_T)SS_SINGLE, 0, 0, 0 },
+
+  { "double", "real_T", 0, 0, sizeof(real_T), (uint8_T)SS_DOUBLE, 0, 0, 0 }
 };
 
 #ifdef HOST_CAPI_BUILD
@@ -123,16 +129,16 @@ static TARGET_CONST rtwCAPI_ElementMap rtElementMap[] = {
 /* Dimension Map - use dimensionMapIndex to access elements of ths structure*/
 static const rtwCAPI_DimensionMap rtDimensionMap[] = {
   /* dataOrientation, dimArrayIndex, numDims, vardimsIndex */
-  { rtwCAPI_SCALAR, 0, 2, 0 },
+  { rtwCAPI_VECTOR, 0, 2, 0 },
 
-  { rtwCAPI_VECTOR, 2, 2, 0 }
+  { rtwCAPI_SCALAR, 2, 2, 0 }
 };
 
 /* Dimension Array- use dimArrayIndex to access elements of this array */
 static const uint_T rtDimensionArray[] = {
-  1,                                   /* 0 */
+  18,                                  /* 0 */
   1,                                   /* 1 */
-  18,                                  /* 2 */
+  1,                                   /* 2 */
   1                                    /* 3 */
 };
 
@@ -157,7 +163,9 @@ static const rtwCAPI_FixPtMap rtFixPtMap[] = {
 static const rtwCAPI_SampleTimeMap rtSampleTimeMap[] = {
   /* samplePeriodPtr, sampleOffsetPtr, tid, samplingMode */
   { (const void *) &rtcapiStoredFloats[0], (const void *) &rtcapiStoredFloats[1],
-    (int8_T)0, (uint8_T)0 }
+    (int8_T)0, (uint8_T)0 },
+
+  { (NULL), (NULL), -2, 0 }
 };
 
 static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
@@ -173,7 +181,7 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
    */
   { rtBlockSignals, 6,
     rtRootInputs, 0,
-    rtRootOutputs, 0 },
+    rtRootOutputs, 1 },
 
   { (NULL), 0,
     (NULL), 0 },
@@ -184,10 +192,10 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
     rtElementMap, rtSampleTimeMap, rtDimensionArray },
   "float",
 
-  { 4233975704U,
-    293192953U,
-    3795265903U,
-    3339247606U },
+  { 2181333522U,
+    3028237967U,
+    2728207795U,
+    1156105708U },
   (NULL), 0,
   (boolean_T)0
 };

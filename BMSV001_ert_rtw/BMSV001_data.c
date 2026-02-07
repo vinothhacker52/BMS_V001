@@ -1,5 +1,5 @@
 /*
- * File: BMSV001_capi.h
+ * File: BMSV001_data.c
  *
  * Code generated for Simulink model 'BMSV001'.
  *
@@ -13,12 +13,14 @@
  * Validation result: Not run
  */
 
-#ifndef BMSV001_capi_h_
-#define BMSV001_capi_h_
+#include "BMSV001.h"
 
-extern void BMSV001_InitializeDataMapInfo(void);
-
-#endif                                 /* BMSV001_capi_h_ */
+/* Invariant block signals (default storage) */
+const ConstB_BMSV001_T BMSV001_ConstB = {
+  { 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F,
+    3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.9254F,
+    3.9254F, 3.9254F }                 /* '<S4>/Data Type Conversion' */
+};
 
 /*
  * File trailer for generated code.

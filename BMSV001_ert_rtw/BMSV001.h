@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.6
+ * Model version                  : 1.7
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 16:46:09 2026
+ * C/C++ source code generated on : Sat Feb  7 20:56:00 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -43,6 +43,11 @@
 #define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
 
+/* Block signals (default storage) */
+typedef struct {
+  real32_T ICM_PCVM_Filtered_j[18];    /* '<S2>/Signal Conversion' */
+} B_BMSV001_T;
+
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
   real32_T DiscreteFilter_states[18];  /* '<S3>/Discrete Filter' */
@@ -50,6 +55,16 @@ typedef struct {
   real32_T DiscreteFilter2_states;     /* '<S3>/Discrete Filter2' */
   real32_T DiscreteFilter3_states;     /* '<S3>/Discrete Filter3' */
 } DW_BMSV001_T;
+
+/* Invariant block signals (default storage) */
+typedef struct {
+  const real32_T PCVM[18];             /* '<S4>/Data Type Conversion' */
+} ConstB_BMSV001_T;
+
+/* External outputs (root outports fed by signals with default storage) */
+typedef struct {
+  real_T BattFaultFlg;                 /* '<Root>/BattFaultFlg' */
+} ExtY_BMSV001_T;
 
 /* Real-time Model Data Structure */
 struct tag_RTM_BMSV001_T {
@@ -65,8 +80,15 @@ struct tag_RTM_BMSV001_T {
   } DataMapInfo;
 };
 
+/* Block signals (default storage) */
+extern B_BMSV001_T BMSV001_B;
+
 /* Block states (default storage) */
 extern DW_BMSV001_T BMSV001_DW;
+
+/* External outputs (root outports fed by signals with default storage) */
+extern ExtY_BMSV001_T BMSV001_Y;
+extern const ConstB_BMSV001_T BMSV001_ConstB;/* constant block i/o */
 
 /*
  * Exported Global Signals
@@ -77,8 +99,6 @@ extern DW_BMSV001_T BMSV001_DW;
  *
  */
 extern real32_T ICM_PCVM_Filtered[18]; /* '<S3>/Discrete Filter' */
-extern real32_T ICM_PCVM0_Filt;        /* '<S2>/Signal Conversion1' */
-extern real32_T ICM_PCVM1_Filt;        /* '<S2>/Signal Conversion2' */
 extern real32_T ICM_BVM_Filtered;      /* '<S3>/Discrete Filter1' */
 extern real32_T ICM_AVM_Filtered;      /* '<S3>/Discrete Filter2' */
 extern real32_T ICM_TEMPERATURE_Filtered;/* '<S3>/Discrete Filter3' */
@@ -114,6 +134,7 @@ extern RT_MODEL_BMSV001_T *const BMSV001_M;
  * '<S2>'   : 'BMSV001/BMS/CBM'
  * '<S3>'   : 'BMSV001/BMS/ICM'
  * '<S4>'   : 'BMSV001/BMS/RXL'
+ * '<S5>'   : 'BMSV001/BMS/CBM/Cell Voltage Monitoring'
  */
 #endif                                 /* BMSV001_h_ */
 
