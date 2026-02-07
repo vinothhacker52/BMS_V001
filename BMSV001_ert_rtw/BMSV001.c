@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.7
+ * Model version                  : 1.12
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 20:59:21 2026
+ * C/C++ source code generated on : Sat Feb  7 11:08:32 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -15,8 +15,8 @@
 
 #include "BMSV001.h"
 #include <math.h>
-#include <string.h>
 #include "rtwtypes.h"
+#include "BMSV001_types.h"
 #include "BMSV001_capi.h"
 
 /* Exported block signals */
@@ -42,83 +42,8 @@ RT_MODEL_BMSV001_T *const BMSV001_M = &BMSV001_M_;
 void BMSV001_step(void)
 {
   int32_T k;
-  real32_T DiscreteFilter_tmp[18];
-  real32_T rtb_Min;
-  for (k = 0; k < 18; k++) {
-    /* DiscreteFilter: '<S3>/Discrete Filter' incorporates:
-     *  BusCreator: '<S4>/BMS'
-     */
-    rtb_Min = BMSV001_ConstB.PCVM[k] - -0.95F *
-      BMSV001_DW.DiscreteFilter_states[k];
-    DiscreteFilter_tmp[k] = rtb_Min;
-    rtb_Min *= 0.05F;
-
-    /* DiscreteFilter: '<S3>/Discrete Filter' */
-    ICM_PCVM_Filtered[k] = rtb_Min;
-
-    /* SignalConversion generated from: '<S2>/Signal Conversion' incorporates:
-     *  DiscreteFilter: '<S3>/Discrete Filter'
-     */
-    BMSV001_B.ICM_PCVM_Filtered_j[k] = rtb_Min;
-  }
-
-  /* MinMax: '<S2>/Min' */
-  rtb_Min = fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf
-    (fminf(fminf(fminf(fminf(fminf(fminf(BMSV001_B.ICM_PCVM_Filtered_j[0],
-    BMSV001_B.ICM_PCVM_Filtered_j[1]), BMSV001_B.ICM_PCVM_Filtered_j[2]),
-    BMSV001_B.ICM_PCVM_Filtered_j[3]), BMSV001_B.ICM_PCVM_Filtered_j[4]),
-                 BMSV001_B.ICM_PCVM_Filtered_j[5]),
-           BMSV001_B.ICM_PCVM_Filtered_j[6]), BMSV001_B.ICM_PCVM_Filtered_j[7]),
-    BMSV001_B.ICM_PCVM_Filtered_j[8]), BMSV001_B.ICM_PCVM_Filtered_j[9]),
-    BMSV001_B.ICM_PCVM_Filtered_j[10]), BMSV001_B.ICM_PCVM_Filtered_j[11]),
-    BMSV001_B.ICM_PCVM_Filtered_j[12]), BMSV001_B.ICM_PCVM_Filtered_j[13]),
-    BMSV001_B.ICM_PCVM_Filtered_j[14]), BMSV001_B.ICM_PCVM_Filtered_j[15]),
-                        BMSV001_B.ICM_PCVM_Filtered_j[16]),
-                  BMSV001_B.ICM_PCVM_Filtered_j[17]);
-
-  /* MultiPortSwitch: '<S5>/Multiport Switch2' incorporates:
-   *  Constant: '<S5>/Constant'
-   *  RelationalOperator: '<S5>/Relational Operator'
-   */
-  if (!(rtb_Min < 2.6)) {
-    /* MultiPortSwitch: '<S5>/Multiport Switch1' incorporates:
-     *  Constant: '<S5>/Constant1'
-     *  RelationalOperator: '<S5>/Relational Operator1'
-     */
-    if (!(rtb_Min < 2.7)) {
-      /* MultiPortSwitch: '<S5>/Multiport Switch' incorporates:
-       *  Constant: '<S5>/Constant2'
-       *  RelationalOperator: '<S5>/Relational Operator2'
-       */
-      if (!(rtb_Min < 2.9)) {
-        /* Outport: '<Root>/BattFaultFlg' incorporates:
-         *  Constant: '<S5>/Constant4'
-         */
-        BMSV001_Y.BattFaultFlg = 0.0;
-      } else {
-        /* Outport: '<Root>/BattFaultFlg' incorporates:
-         *  Constant: '<S5>/Constant3'
-         */
-        BMSV001_Y.BattFaultFlg = 1.0;
-      }
-
-      /* End of MultiPortSwitch: '<S5>/Multiport Switch' */
-    } else {
-      /* Outport: '<Root>/BattFaultFlg' incorporates:
-       *  Constant: '<S5>/Constant5'
-       */
-      BMSV001_Y.BattFaultFlg = 1.0;
-    }
-
-    /* End of MultiPortSwitch: '<S5>/Multiport Switch1' */
-  } else {
-    /* Outport: '<Root>/BattFaultFlg' incorporates:
-     *  Constant: '<S5>/Constant6'
-     */
-    BMSV001_Y.BattFaultFlg = 0.0;
-  }
-
-  /* End of MultiPortSwitch: '<S5>/Multiport Switch2' */
+  real32_T denAccum;
+  real32_T numAccum;
 
   /* DiscreteFilter: '<S3>/Discrete Filter1' */
   BMSV001_DW.DiscreteFilter1_states = 1.0F - -0.95F *
@@ -140,10 +65,56 @@ void BMSV001_step(void)
 
   /* DiscreteFilter: '<S3>/Discrete Filter3' */
   ICM_TEMPERATURE_Filtered = 0.05F * BMSV001_DW.DiscreteFilter3_states;
+  for (k = 0; k < 18; k++) {
+    /* DiscreteFilter: '<S3>/Discrete Filter' incorporates:
+     *  BusCreator: '<S4>/BMS'
+     */
+    denAccum = BMSV001_ConstB.PCVM[k] - -0.95F *
+      BMSV001_DW.DiscreteFilter_states[k];
+    numAccum = 0.05F * denAccum;
 
-  /* Update for DiscreteFilter: '<S3>/Discrete Filter' */
-  memcpy(&BMSV001_DW.DiscreteFilter_states[0], &DiscreteFilter_tmp[0], 18U *
-         sizeof(real32_T));
+    /* DiscreteFilter: '<S3>/Discrete Filter' */
+    ICM_PCVM_Filtered[k] = numAccum;
+
+    /* SignalConversion generated from: '<S2>/Signal Conversion' incorporates:
+     *  DiscreteFilter: '<S3>/Discrete Filter'
+     */
+    BMSV001_B.ICM_PCVM_Filtered_j[k] = numAccum;
+
+    /* Update for DiscreteFilter: '<S3>/Discrete Filter' */
+    BMSV001_DW.DiscreteFilter_states[k] = denAccum;
+  }
+
+  /* Switch: '<S5>/Switch' incorporates:
+   *  Constant: '<S5>/Constant'
+   *  MinMax: '<S2>/Min'
+   *  RelationalOperator: '<S5>/Relational Operator'
+   */
+  if (fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf
+      (fminf(fminf(fminf(fminf(fminf(BMSV001_B.ICM_PCVM_Filtered_j[0],
+      BMSV001_B.ICM_PCVM_Filtered_j[1]), BMSV001_B.ICM_PCVM_Filtered_j[2]),
+                         BMSV001_B.ICM_PCVM_Filtered_j[3]),
+                   BMSV001_B.ICM_PCVM_Filtered_j[4]),
+             BMSV001_B.ICM_PCVM_Filtered_j[5]), BMSV001_B.ICM_PCVM_Filtered_j[6]),
+    BMSV001_B.ICM_PCVM_Filtered_j[7]), BMSV001_B.ICM_PCVM_Filtered_j[8]),
+               BMSV001_B.ICM_PCVM_Filtered_j[9]), BMSV001_B.ICM_PCVM_Filtered_j
+              [10]), BMSV001_B.ICM_PCVM_Filtered_j[11]),
+            BMSV001_B.ICM_PCVM_Filtered_j[12]), BMSV001_B.ICM_PCVM_Filtered_j[13]),
+          BMSV001_B.ICM_PCVM_Filtered_j[14]), BMSV001_B.ICM_PCVM_Filtered_j[15]),
+                  BMSV001_B.ICM_PCVM_Filtered_j[16]),
+            BMSV001_B.ICM_PCVM_Filtered_j[17]) < 2.6) {
+    /* Outport: '<Root>/BattFaultFlg' incorporates:
+     *  Constant: '<S5>/Constant4'
+     */
+    BMSV001_Y.BattFaultFlg = CUT_OFF;
+  } else {
+    /* Outport: '<Root>/BattFaultFlg' incorporates:
+     *  Constant: '<S5>/Constant3'
+     */
+    BMSV001_Y.BattFaultFlg = NORMAL;
+  }
+
+  /* End of Switch: '<S5>/Switch' */
 }
 
 /* Model initialize function */

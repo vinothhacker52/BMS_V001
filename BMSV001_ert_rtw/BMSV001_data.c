@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.7
+ * Model version                  : 1.12
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 20:59:21 2026
+ * C/C++ source code generated on : Sat Feb  7 11:08:32 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -18,8 +18,8 @@
 /* Invariant block signals (default storage) */
 const ConstB_BMSV001_T BMSV001_ConstB = {
   { 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F,
-    3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 2.0F, 2.0F,
-    2.0F }                             /* '<S4>/Data Type Conversion' */
+    3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.5225F, 3.95F, 3.95F,
+    3.95F }                            /* '<S4>/Data Type Conversion' */
 };
 
 /*

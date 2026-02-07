@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.7
+ * Model version                  : 1.12
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 20:59:21 2026
+ * C/C++ source code generated on : Sat Feb  7 11:08:32 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -113,7 +113,8 @@ static TARGET_CONST rtwCAPI_DataTypeMap rtDataTypeMap[] = {
    * isComplex, isPointer, enumStorageType */
   { "float", "real32_T", 0, 0, sizeof(real32_T), (uint8_T)SS_SINGLE, 0, 0, 0 },
 
-  { "double", "real_T", 0, 0, sizeof(real_T), (uint8_T)SS_DOUBLE, 0, 0, 0 }
+  { "numeric", "enumCellVoltMinState", 0, 0, sizeof(enumCellVoltMinState),
+    (uint8_T)SS_ENUM_TYPE, 0, 0, SS_INT32 }
 };
 
 #ifdef HOST_CAPI_BUILD
@@ -192,10 +193,10 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
     rtElementMap, rtSampleTimeMap, rtDimensionArray },
   "float",
 
-  { 1923363978U,
-    892542090U,
-    1872928658U,
-    4189979186U },
+  { 2070983693U,
+    4181709978U,
+    4038941078U,
+    1468463391U },
   (NULL), 0,
   (boolean_T)0
 };
