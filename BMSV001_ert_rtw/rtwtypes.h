@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.6
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 16:35:19 2026
+ * C/C++ source code generated on : Sat Feb  7 16:46:09 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
