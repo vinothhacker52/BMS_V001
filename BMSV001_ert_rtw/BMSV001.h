@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.5
+ * Model version                  : 1.6
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 09:41:02 2026
+ * C/C++ source code generated on : Sat Feb  7 16:35:19 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -43,6 +43,14 @@
 #define rtmSetErrorStatus(rtm, val)    ((rtm)->errorStatus = (val))
 #endif
 
+/* Block states (default storage) for system '<Root>' */
+typedef struct {
+  real32_T DiscreteFilter_states[18];  /* '<S3>/Discrete Filter' */
+  real32_T DiscreteFilter1_states;     /* '<S3>/Discrete Filter1' */
+  real32_T DiscreteFilter2_states;     /* '<S3>/Discrete Filter2' */
+  real32_T DiscreteFilter3_states;     /* '<S3>/Discrete Filter3' */
+} DW_BMSV001_T;
+
 /* Real-time Model Data Structure */
 struct tag_RTM_BMSV001_T {
   const char_T * volatile errorStatus;
@@ -57,6 +65,9 @@ struct tag_RTM_BMSV001_T {
   } DataMapInfo;
 };
 
+/* Block states (default storage) */
+extern DW_BMSV001_T BMSV001_DW;
+
 /*
  * Exported Global Signals
  *
@@ -65,7 +76,12 @@ struct tag_RTM_BMSV001_T {
  * these signals and export their symbols.
  *
  */
-extern Rxl_BMS ICM_Measurement;        /* '<S2>/ICM_Meas' */
+extern real32_T ICM_PCVM_Filtered[18]; /* '<S3>/Discrete Filter' */
+extern real32_T ICM_PCVM0_Filt;        /* '<S2>/Signal Conversion1' */
+extern real32_T ICM_PCVM1_Filt;        /* '<S2>/Signal Conversion2' */
+extern real32_T ICM_BVM_Filtered;      /* '<S3>/Discrete Filter1' */
+extern real32_T ICM_AVM_Filtered;      /* '<S3>/Discrete Filter2' */
+extern real32_T ICM_TEMPERATURE_Filtered;/* '<S3>/Discrete Filter3' */
 
 /* Model entry point functions */
 extern void BMSV001_initialize(void);
@@ -95,8 +111,9 @@ extern RT_MODEL_BMSV001_T *const BMSV001_M;
  *
  * '<Root>' : 'BMSV001'
  * '<S1>'   : 'BMSV001/BMS'
- * '<S2>'   : 'BMSV001/BMS/ICM'
- * '<S3>'   : 'BMSV001/BMS/RXL'
+ * '<S2>'   : 'BMSV001/BMS/CBM'
+ * '<S3>'   : 'BMSV001/BMS/ICM'
+ * '<S4>'   : 'BMSV001/BMS/RXL'
  */
 #endif                                 /* BMSV001_h_ */
 
