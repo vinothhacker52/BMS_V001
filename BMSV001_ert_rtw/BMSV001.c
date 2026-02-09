@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.12
+ * Model version                  : 1.13
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 11:08:32 2026
+ * C/C++ source code generated on : Mon Feb  9 21:22:17 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -14,9 +14,7 @@
  */
 
 #include "BMSV001.h"
-#include <math.h>
 #include "rtwtypes.h"
-#include "BMSV001_types.h"
 #include "BMSV001_capi.h"
 
 /* Exported block signals */
@@ -84,37 +82,6 @@ void BMSV001_step(void)
     /* Update for DiscreteFilter: '<S3>/Discrete Filter' */
     BMSV001_DW.DiscreteFilter_states[k] = denAccum;
   }
-
-  /* Switch: '<S5>/Switch' incorporates:
-   *  Constant: '<S5>/Constant'
-   *  MinMax: '<S2>/Min'
-   *  RelationalOperator: '<S5>/Relational Operator'
-   */
-  if (fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf(fminf
-      (fminf(fminf(fminf(fminf(fminf(BMSV001_B.ICM_PCVM_Filtered_j[0],
-      BMSV001_B.ICM_PCVM_Filtered_j[1]), BMSV001_B.ICM_PCVM_Filtered_j[2]),
-                         BMSV001_B.ICM_PCVM_Filtered_j[3]),
-                   BMSV001_B.ICM_PCVM_Filtered_j[4]),
-             BMSV001_B.ICM_PCVM_Filtered_j[5]), BMSV001_B.ICM_PCVM_Filtered_j[6]),
-    BMSV001_B.ICM_PCVM_Filtered_j[7]), BMSV001_B.ICM_PCVM_Filtered_j[8]),
-               BMSV001_B.ICM_PCVM_Filtered_j[9]), BMSV001_B.ICM_PCVM_Filtered_j
-              [10]), BMSV001_B.ICM_PCVM_Filtered_j[11]),
-            BMSV001_B.ICM_PCVM_Filtered_j[12]), BMSV001_B.ICM_PCVM_Filtered_j[13]),
-          BMSV001_B.ICM_PCVM_Filtered_j[14]), BMSV001_B.ICM_PCVM_Filtered_j[15]),
-                  BMSV001_B.ICM_PCVM_Filtered_j[16]),
-            BMSV001_B.ICM_PCVM_Filtered_j[17]) < 2.6) {
-    /* Outport: '<Root>/BattFaultFlg' incorporates:
-     *  Constant: '<S5>/Constant4'
-     */
-    BMSV001_Y.BattFaultFlg = CUT_OFF;
-  } else {
-    /* Outport: '<Root>/BattFaultFlg' incorporates:
-     *  Constant: '<S5>/Constant3'
-     */
-    BMSV001_Y.BattFaultFlg = NORMAL;
-  }
-
-  /* End of Switch: '<S5>/Switch' */
 }
 
 /* Model initialize function */

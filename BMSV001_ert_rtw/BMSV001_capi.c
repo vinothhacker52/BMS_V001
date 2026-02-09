@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.12
+ * Model version                  : 1.13
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 11:08:32 2026
+ * C/C++ source code generated on : Mon Feb  9 21:22:17 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -80,7 +80,7 @@ static const rtwCAPI_Signals rtRootOutputs[] = {
    * signalName, portNumber, dataTypeIndex, dimIndex, fxpIndex, sTimeIndex
    */
   { 6, 0, TARGET_STRING("BMSV001/BattFaultFlg"),
-    TARGET_STRING(""), 1, 1, 1, 0, 0 },
+    TARGET_STRING(""), 1, 1, 1, 0, 1 },
 
   {
     0, 0, (NULL), (NULL), 0, 0, 0, 0, 0
@@ -113,8 +113,7 @@ static TARGET_CONST rtwCAPI_DataTypeMap rtDataTypeMap[] = {
    * isComplex, isPointer, enumStorageType */
   { "float", "real32_T", 0, 0, sizeof(real32_T), (uint8_T)SS_SINGLE, 0, 0, 0 },
 
-  { "numeric", "enumCellVoltMinState", 0, 0, sizeof(enumCellVoltMinState),
-    (uint8_T)SS_ENUM_TYPE, 0, 0, SS_INT32 }
+  { "double", "real_T", 0, 0, sizeof(real_T), (uint8_T)SS_DOUBLE, 0, 0, 0 }
 };
 
 #ifdef HOST_CAPI_BUILD
@@ -193,10 +192,10 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
     rtElementMap, rtSampleTimeMap, rtDimensionArray },
   "float",
 
-  { 2070983693U,
-    4181709978U,
-    4038941078U,
-    1468463391U },
+  { 454670540U,
+    4036653450U,
+    2298590665U,
+    499622903U },
   (NULL), 0,
   (boolean_T)0
 };

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.12
+ * Model version                  : 1.13
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Sat Feb  7 11:08:32 2026
+ * C/C++ source code generated on : Mon Feb  9 21:22:17 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -16,15 +16,15 @@
 #ifndef BMSV001_types_h_
 #define BMSV001_types_h_
 #include "rtwtypes.h"
-#ifndef DEFINED_TYPEDEF_FOR_enumCellVoltMinState_
-#define DEFINED_TYPEDEF_FOR_enumCellVoltMinState_
+#ifndef DEFINED_TYPEDEF_FOR_enumCellVoltState_
+#define DEFINED_TYPEDEF_FOR_enumCellVoltState_
 
 typedef enum {
   NORMAL = 0,                          /* Default value */
   WARNING,
   DERATE,
   CUT_OFF
-} enumCellVoltMinState;
+} enumCellVoltState;
 
 #endif
 

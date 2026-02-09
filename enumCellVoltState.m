@@ -1,4 +1,4 @@
-classdef enumCellVoltMinState < Simulink.IntEnumType
+classdef enumCellVoltState < Simulink.IntEnumType
     enumeration
         NORMAL   (0)
         WARNING  (1)
