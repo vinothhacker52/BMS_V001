@@ -1,7 +1,7 @@
--IC:/Users/arull/Documents/GitHub/BMS_V001
--IC:/Users/arull/Documents/GitHub/BMS_V001/BMSV001_ert_rtw
--I"C:/Program Files/MATLAB/R2025b/extern/include"
--I"C:/Program Files/MATLAB/R2025b/simulink/include"
--I"C:/Program Files/MATLAB/R2025b/rtw/c/src"
--I"C:/Program Files/MATLAB/R2025b/rtw/c/src/ext_mode/common"
--I"C:/Program Files/MATLAB/R2025b/rtw/c/ert"
+-IC:/Users/POOVARASAN/OneDrive/Documents/GitHub/BMS_V001
+-IC:/Users/POOVARASAN/OneDrive/Documents/GitHub/BMS_V001/BMSV001_ert_rtw
+-I"D:/MathWorks MATLAB R2025b v25.2.0.2998904 (x64)/extern/include"
+-I"D:/MathWorks MATLAB R2025b v25.2.0.2998904 (x64)/simulink/include"
+-I"D:/MathWorks MATLAB R2025b v25.2.0.2998904 (x64)/rtw/c/src"
+-I"D:/MathWorks MATLAB R2025b v25.2.0.2998904 (x64)/rtw/c/src/ext_mode/common"
+-I"D:/MathWorks MATLAB R2025b v25.2.0.2998904 (x64)/rtw/c/ert"

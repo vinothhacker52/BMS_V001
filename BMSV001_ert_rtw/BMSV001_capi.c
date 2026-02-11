@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.13
+ * Model version                  : 1.30
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Mon Feb  9 21:22:17 2026
+ * C/C++ source code generated on : Wed Feb 11 11:02:14 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -59,6 +59,9 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 5, 0, TARGET_STRING("BMSV001/BMS/RXL/Data Type Conversion"),
     TARGET_STRING("PCVM"), 0, 0, 0, 0, 1 },
 
+  { 6, 0, TARGET_STRING("BMSV001/BMS/CBM/Cell Voltage Monitoring/C Caller"),
+    TARGET_STRING("ICM_BVM_Raw"), 0, 0, 1, 0, 0 },
+
   {
     0, 0, (NULL), (NULL), 0, 0, 0, 0, 0
   }
@@ -69,6 +72,9 @@ static const rtwCAPI_Signals rtRootInputs[] = {
   /* addrMapIndex, sysNum, blockPath,
    * signalName, portNumber, dataTypeIndex, dimIndex, fxpIndex, sTimeIndex
    */
+  { 7, 0, TARGET_STRING("BMSV001/In1"),
+    TARGET_STRING(""), 1, 1, 1, 0, 0 },
+
   {
     0, 0, (NULL), (NULL), 0, 0, 0, 0, 0
   }
@@ -79,7 +85,7 @@ static const rtwCAPI_Signals rtRootOutputs[] = {
   /* addrMapIndex, sysNum, blockPath,
    * signalName, portNumber, dataTypeIndex, dimIndex, fxpIndex, sTimeIndex
    */
-  { 6, 0, TARGET_STRING("BMSV001/BattFaultFlg"),
+  { 8, 0, TARGET_STRING("BMSV001/BattFaultFlg"),
     TARGET_STRING(""), 1, 1, 1, 0, 1 },
 
   {
@@ -97,7 +103,9 @@ static void* rtDataAddrMap[] = {
   &ICM_AVM_Filtered,                   /* 3: Signal */
   &ICM_TEMPERATURE_Filtered,           /* 4: Signal */
   (void *) &BMSV001_ConstB.PCVM[0],    /* 5: Signal */
-  &BMSV001_Y.BattFaultFlg,             /* 6: Root Output */
+  &ICM_BVM_Raw,                        /* 6: Signal */
+  &BMSV001_U.In1,                      /* 7: Root Input */
+  &BMSV001_Y.BattFaultFlg,             /* 8: Root Output */
 };
 
 /* Declare Data Run-Time Dimension Buffer Addresses statically */
@@ -179,8 +187,8 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
    *          elementMap, sampleTimeMap, dimensionArray},
    * TargetType: targetType
    */
-  { rtBlockSignals, 6,
-    rtRootInputs, 0,
+  { rtBlockSignals, 7,
+    rtRootInputs, 1,
     rtRootOutputs, 1 },
 
   { (NULL), 0,
@@ -192,10 +200,10 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
     rtElementMap, rtSampleTimeMap, rtDimensionArray },
   "float",
 
-  { 454670540U,
-    4036653450U,
-    2298590665U,
-    499622903U },
+  { 4213639999U,
+    3504595949U,
+    1996283971U,
+    2673190579U },
   (NULL), 0,
   (boolean_T)0
 };

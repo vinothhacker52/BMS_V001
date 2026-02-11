@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.13
+ * Model version                  : 1.30
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Mon Feb  9 21:22:17 2026
+ * C/C++ source code generated on : Wed Feb 11 11:02:14 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850
@@ -61,6 +61,11 @@ typedef struct {
   const real32_T PCVM[18];             /* '<S4>/Data Type Conversion' */
 } ConstB_BMSV001_T;
 
+/* External inputs (root inport signals with default storage) */
+typedef struct {
+  real_T In1;                          /* '<Root>/In1' */
+} ExtU_BMSV001_T;
+
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
   real_T BattFaultFlg;                 /* '<Root>/BattFaultFlg' */
@@ -86,6 +91,9 @@ extern B_BMSV001_T BMSV001_B;
 /* Block states (default storage) */
 extern DW_BMSV001_T BMSV001_DW;
 
+/* External inputs (root inport signals with default storage) */
+extern ExtU_BMSV001_T BMSV001_U;
+
 /* External outputs (root outports fed by signals with default storage) */
 extern ExtY_BMSV001_T BMSV001_Y;
 extern const ConstB_BMSV001_T BMSV001_ConstB;/* constant block i/o */
@@ -99,6 +107,7 @@ extern const ConstB_BMSV001_T BMSV001_ConstB;/* constant block i/o */
  *
  */
 extern real32_T ICM_PCVM_Filtered[18]; /* '<S3>/Discrete Filter' */
+extern real32_T ICM_BVM_Raw;           /* '<S5>/C Caller' */
 extern real32_T ICM_BVM_Filtered;      /* '<S3>/Discrete Filter1' */
 extern real32_T ICM_AVM_Filtered;      /* '<S3>/Discrete Filter2' */
 extern real32_T ICM_TEMPERATURE_Filtered;/* '<S3>/Discrete Filter3' */

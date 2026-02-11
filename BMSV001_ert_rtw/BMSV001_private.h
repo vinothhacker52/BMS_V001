@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'BMSV001'.
  *
- * Model version                  : 1.13
+ * Model version                  : 1.30
  * Simulink Coder version         : 25.2 (R2025b) 28-Jul-2025
- * C/C++ source code generated on : Mon Feb  9 21:22:17 2026
+ * C/C++ source code generated on : Wed Feb 11 11:02:14 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Renesas->RH850

@@ -2,7 +2,7 @@
 ## Makefile generated for component 'BMSV001'. 
 ## 
 ## Makefile     : BMSV001.mk
-## Generated on : Mon Feb 09 20:50:03 2026
+## Generated on : Wed Feb 11 10:32:46 2026
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/BMSV001.exe
 ## Product type : executable
 ## 
@@ -20,10 +20,10 @@
 
 PRODUCT_NAME              = BMSV001
 MAKEFILE                  = BMSV001.mk
-MATLAB_ROOT               = C:/PROGRA~1/MATLAB/R2025b
-MATLAB_BIN                = C:/PROGRA~1/MATLAB/R2025b/bin
+MATLAB_ROOT               = D:/MathWorks MATLAB R2025b v25.2.0.2998904 (x64)
+MATLAB_BIN                = D:/MathWorks MATLAB R2025b v25.2.0.2998904 (x64)/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
-START_DIR                 = C:/Users/arull/Documents/GitHub/BMS_V001
+START_DIR                 = C:/Users/POOVARASAN/OneDrive/Documents/GitHub/BMS_V001
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
@@ -34,6 +34,14 @@ COMPILER_COMMAND_FILE     = BMSV001_comp.rsp
 CMD_FILE                  = BMSV001.rsp
 C_STANDARD_OPTS           = -fwrapv
 CPP_STANDARD_OPTS         = -fwrapv
+EMPTY                     = 
+SPACE                     = $(EMPTY) $(EMPTY)
+SPACE_TO_QUESTION         = $(subst $(SPACE),?,$1)
+ESCAPE_SPACES             = $(subst $(SPACE),\ ,$1)
+SUBSTITUTE_ESCAPED_SPACES = $(subst \ ,__<SPACE>__,$1)
+ADD_QUOTES                = $(foreach aPath,$1,"$(aPath)")
+REVERT_SPACES             = $(subst __<SPACE>__,$(SPACE),$1)
+CONVERT_ESCAPED_SPACES_TO_QUOTES = $(call REVERT_SPACES,$(call ADD_QUOTES,$(call SUBSTITUTE_ESCAPED_SPACES,$1)))
 
 ###########################################################################
 ## TOOLCHAIN SPECIFICATIONS
@@ -441,99 +449,99 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.c
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/rtw/c/src/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.cpp
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/rtw/c/src/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.cc
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/rtw/c/src/%.cc
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.cp
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/rtw/c/src/%.cp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.cxx
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/rtw/c/src/%.cxx
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.CPP
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/rtw/c/src/%.CPP
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.c++
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/rtw/c/src/%.c++
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/rtw/c/src/%.C
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/rtw/c/src/%.C
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/simulink/src/%.c
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/simulink/src/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/simulink/src/%.cpp
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/simulink/src/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/simulink/src/%.cc
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/simulink/src/%.cc
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/simulink/src/%.cp
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/simulink/src/%.cp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/simulink/src/%.cxx
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/simulink/src/%.cxx
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/simulink/src/%.CPP
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/simulink/src/%.CPP
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/simulink/src/%.c++
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/simulink/src/%.c++
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/simulink/src/%.C
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/simulink/src/%.C
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.c
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/toolbox/simulink/blocks/src/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.cpp
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/toolbox/simulink/blocks/src/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.cc
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/toolbox/simulink/blocks/src/%.cc
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.cp
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/toolbox/simulink/blocks/src/%.cp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.cxx
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/toolbox/simulink/blocks/src/%.cxx
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.CPP
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/toolbox/simulink/blocks/src/%.CPP
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.c++
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/toolbox/simulink/blocks/src/%.c++
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(MATLAB_ROOT)/toolbox/simulink/blocks/src/%.C
+%.obj : $(call SPACE_TO_QUESTION,$(MATLAB_ROOT))/toolbox/simulink/blocks/src/%.C
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
